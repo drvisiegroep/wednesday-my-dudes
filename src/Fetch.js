@@ -7,7 +7,7 @@ export function FetchUserData() {
     
         return(
             //Totale onzin
-           // <p>bla bla bfjsddbfsdkkkkkk,f</p>
+           // <p>bla bla bfjsddbfsdkkkkkkkk,f</p>
            <h1>Harry Potter is great</h1>
         )
 }
