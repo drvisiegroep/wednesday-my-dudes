@@ -1,11 +1,12 @@
+import { FetchUserData } from './Fetch.js'
 
 function App() {
   return (
     <div className="App">
 
-<p>lalalalal</p>
+    <FetchUserData />   
     </div>
   );
 }
-
+  
 export default App;
