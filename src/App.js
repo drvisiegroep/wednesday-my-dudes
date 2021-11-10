@@ -4,9 +4,10 @@ function App() {
   return (
     <div className="App">
 
-    <FetchUserData />   
+    <FetchUserData />  
+     
     </div>
   );
 }
-  
+
 export default App;
