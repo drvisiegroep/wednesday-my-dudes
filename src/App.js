@@ -8,7 +8,7 @@ function FetchUserComponent() {
     fetchData();
   },[]);
 
-  
+
   function fetchData(){
     const url = `https://jsonplaceholder.typicode.com/users`;
     fetch(url)
@@ -52,8 +52,8 @@ function UserListItemComponent(props) {
   
   return (
     <div className="ComponentContainer" >
-        <h4>UserListItemComponent haalt voor iedere user ID de bijbehorende  haalt lijst met alle users op en geeft die door 
-          aan de userListItemComponent
+        <h4>UserListItemComponent haalt voor iedere user ID 
+          de bijbehorende user info op en toont die
         </h4>
         <p>{myFetchedUser.name}</p> 
         <p>{myFetchedUser.website}</p> 
@@ -63,8 +63,6 @@ function UserListItemComponent(props) {
 }
   
   
- 
-
 function App() {
   return (
     <div className="App ComponentContainer">
