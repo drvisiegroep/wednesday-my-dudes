@@ -6,7 +6,9 @@ export function FetchUserData() {
         .then(json => console.log(json))
     
         return(
-            <p>bla bla bfjsddbfsd,f</p>
+            //Totale onzin
+           // <p>bla bla bfjsddbfsd,f</p>
+           <h1>Harry Potter</h1>
         )
 }
    
