@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import Users from './Users';
+import Posts from './Posts';
 
 export function FetchUserData() {
     const [resourceType, setResourceType] = useState('users');
@@ -24,12 +25,12 @@ export function FetchUserData() {
             </div>
             
             <h1>{resourceType}</h1>
-                {result.map (item => 
-                    < Users name={item.name} userid={item.id} username={item.username} email={item.email} phone={item.phone} website={item.website} />
-            )}
+            {result && resourceType === 'users' && <Users results={result} />}
+            {result && resourceType === 'posts' && <Posts results={result} />}
 
         </>
 
     )
+
 }
    

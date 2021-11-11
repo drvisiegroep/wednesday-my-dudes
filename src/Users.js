@@ -1,17 +1,18 @@
-
-export default function Users(props) {
-
+const Users = ({ results }) => {
     return (
 
+        <div className="user-list">
 
-        <div key={props.userid}> 
-        <h1>{props.userid}</h1>
-        <h1>{props.name}</h1>
-        <p>{props.username}</p>
-        <p>{props.email}</p>
-        <p>{props.phone}</p>
-        <p>{props.website}</p>
-        <p>{props.company}</p>
+        {results.map(result => (
+            <div className="user" key={result.id} >
+                <h2>Name: {result.name}</h2>
+                <p>Phone: {result.phone}</p>
+            </div>
+        ))}
+
         </div>
-    )
+
+    );
 }
+
+export default Users;
