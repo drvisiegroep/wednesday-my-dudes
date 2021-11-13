@@ -8,7 +8,7 @@ export function FetchUserData() {
 
 
     useEffect(() => {
-        
+        console.log(resourceType)
         fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
         .then(response => response.json())
         .then(response => setResult(response))
