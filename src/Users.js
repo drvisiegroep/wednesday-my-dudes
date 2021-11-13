@@ -12,6 +12,7 @@ const Users = ({ results }) => {
                     <li>Email: {result.email}</li>
                     <li>Phone: {result.phone}</li>
                     <li>Website: {result.website}</li>
+                    {/* Als je alles vanaf hier... */}
                         <ul>
                             <li>Street: {result.address.street}</li>
                             <li>Suite: {result.address.suite}</li>
@@ -27,6 +28,7 @@ const Users = ({ results }) => {
                             <li>Slogan: {result.company.catchPhrase}</li>
                             <li>Business: {result.company.bs}</li>
                         </ul>
+                    {/* ...tot hier outcomment dan werkt het prima. Maar waarom? */}
                 </ul>
             ))}
         
