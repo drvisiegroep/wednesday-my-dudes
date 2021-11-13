@@ -6,10 +6,13 @@ export function FetchUserData() {
     const [resourceType, setResourceType] = useState('users');
     const [result, setResult] = useState([]);
 
+
     useEffect(() => {
+        
         fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
-            .then(response => response.json())
-            .then(response => setResult(response))
+        .then(response => response.json())
+        .then(response => setResult(response))
+
     }, [resourceType])
 
     return (
