@@ -1,15 +1,16 @@
 import React, {useState, useEffect } from 'react'
-import Users from './Users';
-import Posts from './Posts';
+import Schedule from './Schedule';
+import Presence from './Presence';
+
 
 export function FetchUserData() {
-    const [resourceType, setResourceType] = useState('users');
+    const [resourceType, setResourceType] = useState('schedule');
     const [result, setResult] = useState([]);
-
+    // const userIdUrl = 'https://aanmelden.visie-groep.nl/person.php?id=';
 
     useEffect(() => {
-        console.log(resourceType)
-        fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
+        
+        fetch(`https://aanmelden.visie-groep.nl/${resourceType}.php`)
         .then(response => response.json())
         .then(response => setResult(response))
 
@@ -20,16 +21,14 @@ export function FetchUserData() {
         <>
 
             <div>
-                <button onClick={() => setResourceType('posts')}>Posts</button>
-                <button onClick={() => setResourceType('users')}>Users</button>
-                <button onClick={() => setResourceType('comments')}>Comments</button>
-                <button onClick={() => setResourceType('todos')}>Todos</button>
-                <button onClick={() => setResourceType('photos')}>Photos</button>
+                <button onClick={() => setResourceType('presence')}>Presence</button>
+                <button onClick={() => setResourceType('schedule')}>Schedule</button>
+
             </div>
             
             <h1>{resourceType}</h1>
-            {result && resourceType === 'users' && <Users results={result} />}
-            {result && resourceType === 'posts' && <Posts results={result} />}
+            {result && resourceType === 'schedule' && <Schedule results={result}  />}
+            {result && resourceType === 'presence' && <Presence results={result}  />}
 
         </>
 
