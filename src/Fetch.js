@@ -6,7 +6,6 @@ import Presence from './Presence';
 export function FetchUserData() {
     const [resourceType, setResourceType] = useState('schedule');
     const [result, setResult] = useState([]);
-    // const userIdUrl = 'https://aanmelden.visie-groep.nl/person.php?id=';
 
     useEffect(() => {
         

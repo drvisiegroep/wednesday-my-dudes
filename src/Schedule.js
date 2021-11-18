@@ -45,29 +45,29 @@ const Schedule = ({ results }) => {
                 </thead>
                 <tbody>
 
-        {results.map((item, index) => {
-            return (
-                
-                    <tr key={index}>
-                        <button onClick={() => setUserid(`${item.user_id}`)}>{item.user_id}</button>
-                        <td>{item.first_name} {item.last_name}</td>
-                        <td>{item.user_id}</td>
-                        <td>{item.department}</td>
-                        <td>{item.monday_from} - {item.monday_to}</td>
-                        <td>{item.tuesday_from} - {item.tuesday_to}</td>
-                        <td>{item.wednesday_from} - {item.wednesday_to}</td>
-                        <td>{item.thursday_from} - {item.thursday_to}</td>
-                        <td>{item.friday_from} - {item.friday_to}</td>
-                    </tr>
-                
-            )
-        })}
+                {results.map((item, index) => {
+                    return (
+                        
+                            <tr key={index}>
+                                <button onClick={() => setUserid(`${item.user_id}`)}>{item.user_id}</button>
+                                <td>{item.first_name} {item.last_name}</td>
+                                <td>{item.user_id}</td>
+                                <td>{item.department}</td>
+                                <td>{item.monday_from} - {item.monday_to}</td>
+                                <td>{item.tuesday_from} - {item.tuesday_to}</td>
+                                <td>{item.wednesday_from} - {item.wednesday_to}</td>
+                                <td>{item.thursday_from} - {item.thursday_to}</td>
+                                <td>{item.friday_from} - {item.friday_to}</td>
+                            </tr>
+                        
+                    )
+                })}
                 </tbody>
             </table>
         </div>
 
 
-                {console.log('bla', userid)}
+                
             <Person userid={userid} />
         </>
     );
