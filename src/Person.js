@@ -16,8 +16,6 @@ function Person({ userid }) {
             
     }, [userid]);
 
-
-
     if (loading) {
         console.log(`loading`)
         return <p>Data is loading...</p>;
@@ -28,15 +26,11 @@ function Person({ userid }) {
     }
     return (
 
-
-
         <>
             
-                
-                    {/* {(person && typeof person.schedule !== "undefined")} */}
                     <div>
                         
-                        <h1>{person.first_name} {person['last_name']}</h1>
+                        <h1>{person.first_name} {person.last_name}</h1>
                         <p>Geboortedatum: {person.date_of_birth}</p>
                         <p>Rol: {person.role}</p>
                         <p>Op tijd: {person.arrive_on_time_target}</p>
@@ -73,8 +67,6 @@ function Person({ userid }) {
                         })}
                    </div>
                 
-            
-            
         </>
     )
     
