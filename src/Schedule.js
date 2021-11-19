@@ -32,16 +32,23 @@ const Schedule = ({ results }) => {
     }
 
     const [userid, setUserid] = useState('1');
-    
+    const tableHeading = {
+        backgroundColor: "#f1f1f1"
+    }
+    const btnWidth = {
+        minWidth: "40px"
+    }
+
+
     return (
         <>
             <div className="schedule-list">
                 <table>
                     <thead>
-                        <tr>
+                        <tr style={tableHeading}>
                             <th>ID</th>
                             <th>Naam</th>
-                            <th><button onClick={() => {sortID();forceUpdate()}}>ID</button></th>
+                            <th><button style={btnWidth} onClick={() => {sortID();forceUpdate()}}>ID</button></th>
                             <th>Afdeling</th>
                             <th>Maandag</th>
                             <th>Dinsdag</th>
@@ -56,15 +63,15 @@ const Schedule = ({ results }) => {
                         return (
                             
                             <tr key={rsltindex}>
-                                <button onClick={() => setUserid(`${rslt.user_id}`)}>{rslt.user_id}</button>
+                                <button style={btnWidth} onClick={() => setUserid(`${rslt.user_id}`)}>{rslt.user_id}</button>
                                 <td>{rslt.first_name} {rslt.last_name}</td>
                                 <td>{rslt.user_id}</td>
                                 <td>{rslt.department}</td>
-                                {rslt.monday_from === null ? <td></td> : <td>{rslt.monday_from} - {rslt.monday_to}</td>}
-                                {rslt.tuesday_from === null ? <td></td> : <td>{rslt.tuesday_from} - {rslt.tuesday_to}</td>}
-                                {rslt.wednesday_from === null ? <td></td> : <td>{rslt.wednesday_from} - {rslt.wednesday_to}</td>}
-                                {rslt.thursday_from === null ? <td></td> : <td>{rslt.thursday_from} - {rslt.thursday_to}</td>}
-                                {rslt.friday_from === null ? <td></td> : <td>{rslt.friday_from} - {rslt.friday_to}</td>}
+                                {rslt.monday_from === null ? <td></td> : <td>{rslt.monday_from.substring(0,5).substring(0,5)} - {rslt.monday_to.substring(0,5)}</td>}
+                                {rslt.tuesday_from === null ? <td></td> : <td>{rslt.tuesday_from.substring(0,5)} - {rslt.tuesday_to.substring(0,5)}</td>}
+                                {rslt.wednesday_from === null ? <td></td> : <td>{rslt.wednesday_from.substring(0,5)} - {rslt.wednesday_to.substring(0,5)}</td>}
+                                {rslt.thursday_from === null ? <td></td> : <td>{rslt.thursday_from.substring(0,5)} - {rslt.thursday_to.substring(0,5)}</td>}
+                                {rslt.friday_from === null ? <td></td> : <td>{rslt.friday_from.substring(0,5)} - {rslt.friday_to.substring(0,5)}</td>}
 
                             </tr>
                             

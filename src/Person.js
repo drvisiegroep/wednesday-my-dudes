@@ -47,11 +47,11 @@ function Person({ userid }) {
                     return(
                         <div key={schdlkey}>
                             <p>Afdeling: {schdl.department}</p>
-                            {schdl.monday_from === null ? <p>Maandag: Niet aanwezig</p> : <p>Maandag {schdl.monday_from} tot {schdl.monday_to}</p>}
-                            {schdl.tuesday_from === null ? <p>Dinsdag: Niet aanwezig</p> : <p>Dinsdag {schdl.tuesday_from} tot {schdl.tuesday_to}</p>}
-                            {schdl.wednesday_from === null ? <p>Woensdag: Niet aanwezig</p> : <p>Woensdag {schdl.wednesday_from} tot {schdl.wednesday_to}</p>}
-                            {schdl.thursday_from === null ? <p>Donderdag: Niet aanwezig</p> : <p>Donderdag {schdl.thursday_from} tot {schdl.thursday_to}</p>}
-                            {schdl.friday_from === null ? <p>Vrijdag: Niet aanwezig</p> : <p>Vrijdag {schdl.friday_from} tot {schdl.friday_to}</p>}
+                            {schdl.monday_from === null ? <p>Maandag: Niet aanwezig</p> : <p>Maandag {schdl.monday_from.substring(0,5)} tot {schdl.monday_to.substring(0,5)}</p>}
+                            {schdl.tuesday_from === null ? <p>Dinsdag: Niet aanwezig</p> : <p>Dinsdag {schdl.tuesday_from.substring(0,5)} tot {schdl.tuesday_to.substring(0,5)}</p>}
+                            {schdl.wednesday_from === null ? <p>Woensdag: Niet aanwezig</p> : <p>Woensdag {schdl.wednesday_from.substring(0,5)} tot {schdl.wednesday_to.substring(0,5)}</p>}
+                            {schdl.thursday_from === null ? <p>Donderdag: Niet aanwezig</p> : <p>Donderdag {schdl.thursday_from.substring(0,5)} tot {schdl.thursday_to.substring(0,5)}</p>}
+                            {schdl.friday_from === null ? <p>Vrijdag: Niet aanwezig</p> : <p>Vrijdag {schdl.friday_from.substring(0,5)} tot {schdl.friday_to.substring(0,5)}</p>}
                         </div>
                     )
                 })}
@@ -61,9 +61,10 @@ function Person({ userid }) {
                 {person.registrations.map((reg, regkey) => {
                     return(
                         <div key={regkey}>
-                        <p>Signed in: {reg.signed_in}</p>
-                        <p>Signed off: {reg.signed_off}</p>
-                        <p>Automatisch: {reg.signed_auto_signed_off}</p>
+                        <p>Datum: {reg.signed_in.substring(0,10)}</p>
+                        <p>Signed in: {reg.signed_in.substring(10,16)}</p>
+                        <p>Signed off: {reg.signed_off.substring(10,16)}</p>
+                        <p>Auto-uitgelogd: {reg.signed_auto_signed_off}</p>
                         <p>---</p>
                         </div>
                     )
