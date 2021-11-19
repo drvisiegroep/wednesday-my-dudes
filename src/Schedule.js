@@ -13,13 +13,10 @@ const Schedule = ({ results }) => {
 
     // const dataHandler = (obj, fn) => {
     //     const values = Object.values(obj)
-    
     //     values.forEach((val) => 
     //         val && typeof val === "object" ? dataHandler(val, fn) : fn(val))
     // }
-    
     // const print = (val) => console.log(val)
-        
     // dataHandler(results, print)
 
     const forceUpdate = useForceUpdate();
@@ -30,22 +27,31 @@ const Schedule = ({ results }) => {
             return a.user_id - b.user_id
         })  	
     }
-
+    // UserID geven we mee als prop naar Person.js
     const [userid, setUserid] = useState('1');
-    const tableHeading = {
-        backgroundColor: "#f1f1f1"
+    
+
+    // Styling 
+    const tableWidth = {
+        width: "60%",
+        margin: "0 auto"
+    }
+    const tableRowHeading = {
+        backgroundColor: "#f1f1f1",
+        height: "40px",
+        fontFamily: "Arial"
     }
     const btnWidth = {
         minWidth: "40px"
     }
-
+    
 
     return (
         <>
             <div className="schedule-list">
-                <table>
+                <table style={tableWidth}>
                     <thead>
-                        <tr style={tableHeading}>
+                        <tr style={tableRowHeading}>
                             <th>ID</th>
                             <th>Naam</th>
                             <th><button style={btnWidth} onClick={() => {sortID();forceUpdate()}}>ID</button></th>
