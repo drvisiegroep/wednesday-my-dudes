@@ -39,9 +39,9 @@ function Person({ userid }) {
                         
 
                         <h2>Schedule</h2>
-                        {person.schedule.map(schdl => {
+                        {person.schedule.map((schdl, schdlkey) => {
                             return(
-                                <div>
+                                <div key={schdlkey}>
                                     <p>Afedling: {schdl.department}</p>
                                     <p>Maandag {schdl.monday_from} tot {schdl.monday_to}</p>
                                     <p>Dinsdag: {schdl.tuesday_from} tot {schdl.tuesday_to}</p>
@@ -54,13 +54,13 @@ function Person({ userid }) {
 
 
                         <h2>Aanmeldingen</h2>
-                        {person.registrations.map(item => {
+                        {person.registrations.map((reg, regkey) => {
                            
                            return(
-                               <div>
-                                <p>Signed in: {item.signed_in}</p>
-                                <p>Signed off: {item.signed_off}</p>
-                                <p>Automatisch: {item.signed_auto_signed_off}</p>
+                               <div key={regkey}>
+                                <p>Signed in: {reg.signed_in}</p>
+                                <p>Signed off: {reg.signed_off}</p>
+                                <p>Automatisch: {reg.signed_auto_signed_off}</p>
                                 <p>---</p>
                                </div>
                            )
