@@ -1,8 +1,6 @@
 import React, {useState, } from 'react';
 import Person from './Person';
 
-
-
 const Schedule = ({ results }) => {
     
     // https://stackoverflow.com/questions/46240647/react-how-to-force-a-function-component-to-render/53837442#53837442
@@ -11,6 +9,7 @@ const Schedule = ({ results }) => {
         return () => setValue(value => value + 1); // update the state to force render
     }
 
+    
     // const dataHandler = (obj, fn) => {
     //     const values = Object.values(obj)
     //     values.forEach((val) => 
@@ -19,7 +18,9 @@ const Schedule = ({ results }) => {
     // const print = (val) => console.log(val)
     // dataHandler(results, print)
 
+
     const forceUpdate = useForceUpdate();
+
 
     // Sorteren op ID 
     const sortID = () => {
@@ -27,6 +28,8 @@ const Schedule = ({ results }) => {
             return a.user_id - b.user_id
         })  	
     }
+
+
     // UserID geven we mee als prop naar Person.js
     const [userid, setUserid] = useState('1');
     
@@ -44,7 +47,12 @@ const Schedule = ({ results }) => {
     const btnWidth = {
         minWidth: "40px"
     }
+
     
+    if (!results || typeof results === 'undefined') {
+        return <p>Ou est le data?...</p>
+    }
+
 
     return (
         <>
