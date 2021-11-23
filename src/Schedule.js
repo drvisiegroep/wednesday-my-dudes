@@ -19,6 +19,7 @@ const Schedule = ({ results }) => {
     // dataHandler(results, print)
 
 
+
     const forceUpdate = useForceUpdate();
 
 
@@ -53,7 +54,8 @@ const Schedule = ({ results }) => {
     }
 
     
-    if (!results || typeof results === 'undefined') {
+    if (!results || typeof results[0].monday_from === 'undefined') {
+        console.log(results)
         return <p>Ou est le data?...</p>
     }
 
