@@ -10,7 +10,6 @@ const Presence = ({ results }) => {
                         <th>ID</th>
                         <th>Afdeling</th>
                         <th>Signed on / Signed off</th>
-
                     </tr>
                 </thead>
                 <tbody>

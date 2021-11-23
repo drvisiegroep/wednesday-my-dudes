@@ -71,7 +71,7 @@ function Person({ userid }) {
                         <p>Signed in: {shortDate(reg.signed_in, 10,16)}</p>
                         <p>Signed off: {shortDate(reg.signed_off, 10,16)}</p>
                         <p>Auto-uitgelogd: {reg.signed_auto_signed_off}</p>
-                        <p>---</p>shortDate(
+                        <p>---</p>
                         </div>
                     )
                 })}

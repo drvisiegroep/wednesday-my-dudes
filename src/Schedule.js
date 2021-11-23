@@ -22,28 +22,32 @@ const Schedule = ({ results }) => {
     const forceUpdate = useForceUpdate();
 
 
+
+    const [sortcheck, setSortcheck] = useState('ASC');
+
     // Sorteren op ID 
     const sortID = () => {
         results.sort(function(a, b) {
+            //todo
             return a.user_id - b.user_id
         })  	
     }
 
-
     // UserID geven we mee als prop naar Person.js
     const [userid, setUserid] = useState('1');
     
-
     // Styling 
     const tableWidth = {
         width: "60%",
         margin: "0 auto"
     }
+
     const tableRowHeading = {
         backgroundColor: "#f1f1f1",
         height: "40px",
         fontFamily: "Arial"
     }
+
     const btnWidth = {
         minWidth: "40px"
     }
@@ -81,7 +85,7 @@ const Schedule = ({ results }) => {
                                 <td>{rslt.first_name} {rslt.last_name}</td>
                                 <td>{rslt.user_id}</td>
                                 <td>{rslt.department}</td>
-                                {rslt.monday_from === null ? <td></td> : <td>{rslt.monday_from.substring(0,5).substring(0,5)} - {rslt.monday_to.substring(0,5)}</td>}
+                                {rslt.monday_from === null ? <td></td> : <td>{rslt.monday_from.substring(0,5)} - {rslt.monday_to.substring(0,5)}</td>}
                                 {rslt.tuesday_from === null ? <td></td> : <td>{rslt.tuesday_from.substring(0,5)} - {rslt.tuesday_to.substring(0,5)}</td>}
                                 {rslt.wednesday_from === null ? <td></td> : <td>{rslt.wednesday_from.substring(0,5)} - {rslt.wednesday_to.substring(0,5)}</td>}
                                 {rslt.thursday_from === null ? <td></td> : <td>{rslt.thursday_from.substring(0,5)} - {rslt.thursday_to.substring(0,5)}</td>}
