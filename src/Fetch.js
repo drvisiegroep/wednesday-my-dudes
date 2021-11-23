@@ -32,8 +32,8 @@ export function FetchUserData() {
             </div>
             
             <h1>{resourceType}</h1>
-            {!loading && typeof result !== 'undefined' && result && resourceType === 'schedule' && <Schedule results={result}  />}
-            {!loading && typeof result !== 'undefined' && result && resourceType === 'presence' && <Presence results={result}  />}
+            {result && resourceType === 'schedule' && <Schedule results={result}  />}
+            {result && resourceType === 'presence' && <Presence results={result}  />}
 
         </>
 

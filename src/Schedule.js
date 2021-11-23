@@ -53,8 +53,14 @@ const Schedule = ({ results }) => {
         minWidth: "40px"
     }
 
-    
-    if (!results || typeof results[0].monday_from === 'undefined') {
+    // typeof results === 'undefined'
+    // TypeError: rslt.monday_from is undefined
+    // Aber Warum doch?
+
+    // Antwoord: Hij verandert de results array tussen renders.
+    // Vraag: Uitzoeken waarom...
+    console.log('precheck', results)
+    if (!results || (typeof results[0] === 'undefined' && results.length > 0)) {
         console.log(results)
         return <p>Ou est le data?...</p>
     }
