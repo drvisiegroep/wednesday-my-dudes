@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react'
 import Schedule from './Schedule';
 import Presence from './Presence';
-
+import Barpage from './Barpage';
 
 export function FetchUserData() {
     const [resourceType, setResourceType] = useState('schedule');
@@ -25,7 +25,7 @@ export function FetchUserData() {
     return (
 
         <>
-
+            <Barpage />
             <div>
                 <button onClick={() => setResourceType('presence')}>Presence</button>
                 <button onClick={() => setResourceType('schedule')}>Schedule</button>

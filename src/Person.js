@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { shortDate, fullDayNameDutch } from './DateHandlers'
+import { shortDate, fullDayNameDutch } from './Utils/DateHandlers';
+
 
 function Person({ userid }) {
 
@@ -34,6 +35,7 @@ function Person({ userid }) {
     return (
 
         <>
+        
             <div className="dossier">
                 
                 <h1>Algemene informatie</h1>

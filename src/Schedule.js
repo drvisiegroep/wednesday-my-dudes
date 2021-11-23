@@ -22,8 +22,8 @@ const Schedule = ({ results }) => {
     const forceUpdate = useForceUpdate();
 
 
-
-    const [sortcheck, setSortcheck] = useState('ASC');
+    // todo
+    // const [sortcheck, setSortcheck] = useState('ASC');
 
     // Sorteren op ID 
     const sortID = () => {
