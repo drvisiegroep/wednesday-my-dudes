@@ -19,7 +19,7 @@ const BarChart = () => {
   let barGroups = data.map((d, i) => <g transform={`translate(0, ${i * barHeight})`}>
                                                   <BarGroup d={d} barHeight={barHeight} />
                                                 </g>)   
-
+ 
   return(
     <>
       <svg width="800" height="300" >

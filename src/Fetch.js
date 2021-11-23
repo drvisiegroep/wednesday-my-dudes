@@ -6,15 +6,15 @@ import Barpage from './Barpage';
 export function FetchUserData() {
     const [resourceType, setResourceType] = useState('schedule');
     const [result, setResult] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true)
         fetch(`https://aanmelden.visie-groep.nl/${resourceType}.php`)
-        .then(response => response.json())
-        .then(response => setResult(response))
-        .catch(err => console.log(err))
-        .finally(setLoading(false))
+            .then(response => response.json())
+            .then(response => setResult(response))
+            .catch(err => console.log(err))
+            .finally(setLoading(false))
     }, [resourceType])
 
     if (loading) {
@@ -32,8 +32,8 @@ export function FetchUserData() {
             </div>
             
             <h1>{resourceType}</h1>
-            {result && resourceType === 'schedule' && <Schedule results={result}  />}
-            {result && resourceType === 'presence' && <Presence results={result}  />}
+            {!loading && typeof result !== 'undefined' && result && resourceType === 'schedule' && <Schedule results={result}  />}
+            {!loading && typeof result !== 'undefined' && result && resourceType === 'presence' && <Presence results={result}  />}
 
         </>
 

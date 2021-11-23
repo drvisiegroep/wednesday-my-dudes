@@ -14,8 +14,7 @@ function Person({ userid }) {
             .then(response => setPerson(response))
             .catch(err => console.log(err))
             .finally(setLoading(false))
-
-            
+           
     }, [userid]);
 
 
@@ -29,7 +28,7 @@ function Person({ userid }) {
     // Checken of de json klaar is voor gebruik. Checken op alleen person werkt niet, blijkbaar is de dom of de json dan nog niet geladen o.i.d.
     // Betere oplossing voor zoeken, maar dit werkt voor nu.
     if(typeof person.schedule === 'undefined' || typeof person.registrations === 'undefined') {
-        console.log(`Undefined...`)
+        console.log(`Person.js typeof check - Undefined...`)
         return <p>Er was een foutje met het ophalen van de data...</p>
     }
     return (

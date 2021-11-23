@@ -5,7 +5,6 @@ const BarGroup = ({d, barHeight}) => {
   
     let width = widthScale(d.value)
     let yMid = barHeight * 0.5
-    
     return (
     
     <g className="bar-group">
