@@ -17,7 +17,7 @@ const RegistrationPagination = ({ array }) => {
          setCurrentPage((prev) => prev + 1);
         }
     }
-
+    // todo - pagina logica klopt niet 
     return (
 
         <>
@@ -33,17 +33,15 @@ const RegistrationPagination = ({ array }) => {
                             <p>Signed off: {shortDate(reg1.signed_off, 10,16)}</p>
                             <p>Auto-uitgelogd: {reg1.signed_auto_signed_off}</p>
                         </div>
-                        
-                        
+
                     )
                 })}
             
-
-
                 <div className="registratie-paginering">
                     {currentPage > 1 ? <button onClick={() => changePage('Vorige')}>Vorige</button> : <button disabled>Vorige</button>}
                     {array && array.length - 1 > (currentPage - 1) * maxItemsPerPage ? <button onClick={() => changePage('Volgende')}>Volgende</button> : <button disabled>Vorige</button> }
                 </div>
+
             </div>   
         </>  
     )
