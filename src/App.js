@@ -1,10 +1,10 @@
-import { FetchUserData } from './Fetch.js'
+import Page from './Page'
 
 function App() {
   return (
     <div className="App">
 
-    <FetchUserData />  
+      <Page />  
      
     </div>
   );

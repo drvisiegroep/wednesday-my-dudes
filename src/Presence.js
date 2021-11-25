@@ -1,4 +1,10 @@
-const Presence = ({ results }) => {
+import useFetch from "./useFetch";
+import { presenceUrl } from './Utils/ApiUrls';
+
+const Presence = () => {
+
+    // eslint-disable-next-line no-unused-vars
+    const { error, isPending, data: presence } = useFetch(presenceUrl())
 
     return (
         
@@ -14,18 +20,19 @@ const Presence = ({ results }) => {
                 </thead>
                 <tbody>
 
-        {results.map((item, index) => {
-            return (
-                
-                    <tr key={index}>
-                        <td>{item.first_name} {item.last_name}</td>
-                        <td>{item.user_id}</td>
-                        <td>{item.department}</td>
-                        <td>{item.signed_in} - {item.signed_off}</td>
-                    </tr>
-                
-            )
-        })}
+                    {presence.map((item, index) => {
+                        return (
+                            
+                                <tr key={index}>
+                                    <td>{item.first_name} {item.last_name}</td>
+                                    <td>{item.user_id}</td>
+                                    <td>{item.department}</td>
+                                    <td>{item.signed_in} - {item.signed_off}</td>
+                                </tr>
+                            
+                            )
+                        })}
+
                 </tbody>
             </table>
         </div>

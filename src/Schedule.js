@@ -1,42 +1,36 @@
 import React, {useState, } from 'react';
 import Person from './Person';
+import useFetch from './useFetch';
+import { scheduleUrl } from './Utils/ApiUrls';
 
-const Schedule = ({ results }) => {
+const Schedule = () => {
+
+
+    // eslint-disable-next-line no-unused-vars
+    const { error, isPending, data: schedule } = useFetch(scheduleUrl())
     
+
     // https://stackoverflow.com/questions/46240647/react-how-to-force-a-function-component-to-render/53837442#53837442
     function useForceUpdate(){
         const [, setValue] = useState(0); // integer state
         return () => setValue(value => value + 1); // update the state to force render
     }
-
-    
-    // const dataHandler = (obj, fn) => {
-    //     const values = Object.values(obj)
-    //     values.forEach((val) => 
-    //         val && typeof val === "object" ? dataHandler(val, fn) : fn(val))
-    // }
-    // const print = (val) => console.log(val)
-    // dataHandler(results, print)
-
-
-
     const forceUpdate = useForceUpdate();
 
 
-    // todo
-    // const [sortcheck, setSortcheck] = useState('ASC');
-
+    // todo reverse sort
     // Sorteren op ID 
     const sortID = () => {
-        results.sort(function(a, b) {
+        schedule.sort(function(a, b) {
             //todo
             return a.user_id - b.user_id
         })  	
     }
 
+
     // UserID geven we mee als prop naar Person.js
     const [userid, setUserid] = useState('1');
-    
+
     // Styling 
     const tableWidth = {
         width: "60%",
@@ -52,19 +46,6 @@ const Schedule = ({ results }) => {
     const btnWidth = {
         minWidth: "40px"
     }
-
-    // typeof results === 'undefined'
-    // TypeError: rslt.monday_from is undefined
-    // Aber Warum doch?
-
-    // Antwoord: Hij verandert de results array tussen renders.
-    // Vraag: Uitzoeken waarom...
-    console.log('precheck', results)
-    if (!results || (typeof results[0] === 'undefined' && results.length > 0)) {
-        console.log(results)
-        return <p>Ou est le data?...</p>
-    }
-
 
     return (
         <>
@@ -85,19 +66,20 @@ const Schedule = ({ results }) => {
                     </thead>
                     <tbody>
 
-                    {results.map((rslt, rsltindex) => {
+                    {schedule && schedule.map((item, itemindex) => {
                         return (
                             
-                            <tr key={rsltindex}>
-                                <button style={btnWidth} onClick={() => setUserid(`${rslt.user_id}`)}>{rslt.user_id}</button>
-                                <td>{rslt.first_name} {rslt.last_name}</td>
-                                <td>{rslt.user_id}</td>
-                                <td>{rslt.department}</td>
-                                {rslt.monday_from === null ? <td></td> : <td>{rslt.monday_from.substring(0,5)} - {rslt.monday_to.substring(0,5)}</td>}
-                                {rslt.tuesday_from === null ? <td></td> : <td>{rslt.tuesday_from.substring(0,5)} - {rslt.tuesday_to.substring(0,5)}</td>}
-                                {rslt.wednesday_from === null ? <td></td> : <td>{rslt.wednesday_from.substring(0,5)} - {rslt.wednesday_to.substring(0,5)}</td>}
-                                {rslt.thursday_from === null ? <td></td> : <td>{rslt.thursday_from.substring(0,5)} - {rslt.thursday_to.substring(0,5)}</td>}
-                                {rslt.friday_from === null ? <td></td> : <td>{rslt.friday_from.substring(0,5)} - {rslt.friday_to.substring(0,5)}</td>}
+                            <tr key={itemindex}>
+                                <button style={btnWidth} onClick={() => setUserid(`${item.user_id}`)}>{item.user_id}</button>
+                                <td>{item.first_name} {item.last_name}</td>
+                                <td>{item.user_id}</td>
+                                <td>{item.department}</td>
+                                
+                                {item.monday_from === null ? <td></td> : <td>{item.monday_from.substring(0,5)} - {item.monday_to.substring(0,5)}</td>}
+                                {item.tuesday_from === null ? <td></td> : <td>{item.tuesday_from.substring(0,5)} - {item.tuesday_to.substring(0,5)}</td>}
+                                {item.wednesday_from === null ? <td></td> : <td>{item.wednesday_from.substring(0,5)} - {item.wednesday_to.substring(0,5)}</td>}
+                                {item.thursday_from === null ? <td></td> : <td>{item.thursday_from.substring(0,5)} - {item.thursday_to.substring(0,5)}</td>}
+                                {item.friday_from === null ? <td></td> : <td>{item.friday_from.substring(0,5)} - {item.friday_to.substring(0,5)}</td>}
 
                             </tr>
                             

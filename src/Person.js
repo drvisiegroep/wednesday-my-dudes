@@ -1,36 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import useFetch from './useFetch';
 import { shortDate, fullDayNameDutch } from './Utils/DateHandlers';
+import { personUrl } from './Utils/ApiUrls';
 
 
 function Person({ userid }) {
 
-    const [person, setPerson] = useState([]);
-    const [loading, setLoading] = useState(false);
+    // eslint-disable-next-line no-unused-vars
+    const { error, isPending, data: person } = useFetch(personUrl(userid))
 
-    useEffect(() => {
-        setLoading(true)
-        fetch(`https://aanmelden.visie-groep.nl/person.php?id=${userid}`)
-            .then(response => response.json())
-            .then(response => setPerson(response))
-            .catch(err => console.log(err))
-            .finally(setLoading(false))
-           
-    }, [userid]);
-
-
-
-    // Checken of de data is geladen vanuit de api.
-    if (loading) {
-        console.log(`loading...`)
-        return <p>De data wordt geladen...</p>;
-      }
-
-    // Checken of de json klaar is voor gebruik. Checken op alleen person werkt niet, blijkbaar is de dom of de json dan nog niet geladen o.i.d.
-    // Betere oplossing voor zoeken, maar dit werkt voor nu.
-    if(typeof person.schedule === 'undefined' || typeof person.registrations === 'undefined') {
-        console.log(`Person.js typeof check - Undefined...`)
-        return <p>Er was een foutje met het ophalen van de data...</p>
-    }
     return (
 
         <>
@@ -47,7 +24,7 @@ function Person({ userid }) {
                 
 
                 <h2>Planning</h2>
-                {person.schedule.map((schdl, schdlkey) => {
+                {typeof person.schedule !== 'undefined' && person.schedule.map((schdl, schdlkey) => {
                     return(
                         <div key={schdlkey}>
                             <p>Afdeling: {schdl.department}</p>
@@ -62,7 +39,7 @@ function Person({ userid }) {
 
 
                 <h2>Aanmeldingen</h2>
-                {person.registrations.map((reg, regkey) => {
+                {typeof person.registrations !== 'undefined' && person.registrations.map((reg, regkey) => {
               
                     return(
                         <div key={regkey}>
