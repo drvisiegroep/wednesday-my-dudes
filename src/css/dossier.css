@@ -1,0 +1,2 @@
+.dossier {display: flex;width: 60%;margin: 0 auto;}
+.dossier > div {display: flex;flex-direction: column;width: 100%}

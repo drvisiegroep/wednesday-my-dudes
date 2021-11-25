@@ -11,7 +11,7 @@ const useFetch = (url) => {
         const abortCont = new AbortController();
 
         fetch(url, { signal: abortCont.signal })
-        
+
             .then(res => {
                 if (!res.ok) { // error coming back from server
                     throw Error('could not fetch the data for that resource');
@@ -26,8 +26,8 @@ const useFetch = (url) => {
             })
 
             .catch(err => {
+                // Don't update state if error comes from Abortcontroller 
                 if(err.name === 'AbortError') {
-                    // Don't update state if error comes from Abortcontroller 
                     console.log('fetch aborted')
                 } else {
                     // auto catches network / connection error
