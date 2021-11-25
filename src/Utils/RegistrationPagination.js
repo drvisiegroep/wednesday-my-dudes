@@ -7,23 +7,34 @@ const RegistrationPagination = ({ array }) => {
     const [currentPage, setCurrentPage] = useState(1)
 
     // Maximaal aantal items op 1 pagina
-    const maxItemsPerPage = 1
+    const itemsPerPage = 1
+    
+    // Aantal items in de lijst
+    const numberOfItems = array && array.length
 
-    // Van voor naar
+    // Totaal aantal paginas is totaal aantal items gedeeld door aantal items per pagina
+    const numberOfPages = Math.ceil(numberOfItems / itemsPerPage)
+
+
+    // Van voor naar...
     const changePage = (direction) => {
+
         if (direction === 'Vorige') {
          setCurrentPage((prev) => prev - 1);
         } else if (direction === 'Volgende') {
          setCurrentPage((prev) => prev + 1);
         }
+
     }
-    // todo - pagina logica klopt niet 
+
+
+    // todo - pagina logica klopt niet (waarschijnlijk omdat ik maar 1 item per pagina gebruik. Math hard...)
     return (
 
         <>
             <div className="registratie">
                 <h2>Uren Registratie</h2>
-                {array && array.slice((currentPage * maxItemsPerPage) - maxItemsPerPage, currentPage * maxItemsPerPage).map((reg1) => {
+                {array && array.slice((currentPage * itemsPerPage) - itemsPerPage, currentPage * itemsPerPage).map((reg1) => {
                     return (
                         
                         <div className="dag-registratie">
@@ -39,7 +50,8 @@ const RegistrationPagination = ({ array }) => {
             
                 <div className="registratie-paginering">
                     {currentPage > 1 ? <button onClick={() => changePage('Vorige')}>Vorige</button> : <button disabled>Vorige</button>}
-                    {array && array.length - 1 > (currentPage - 1) * maxItemsPerPage ? <button onClick={() => changePage('Volgende')}>Volgende</button> : <button disabled>Vorige</button> }
+                    <div className="paginering-rest">{numberOfPages - currentPage}</div>
+                    {array && numberOfItems - 1 > (currentPage - 1) * itemsPerPage ? <button onClick={() => changePage('Volgende')}>Volgende</button> : <button disabled>Vorige</button> }
                 </div>
 
             </div>   

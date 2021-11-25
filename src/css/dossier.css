@@ -1,3 +1,5 @@
 .dossier {display: flex;width: 60%;margin: 0 auto;}
-.dossier > div {display: flex;flex-direction: column;width: 100%}
+.dossier > div {display: flex;flex-direction: column;width: 100%;}
+.dossier .registratie-paginering {display: flex;}
+.dossier .registratie-paginering .paginering-rest {margin: 0 1rem;}
 .dossier button:disabled {cursor: not-allowed;}
