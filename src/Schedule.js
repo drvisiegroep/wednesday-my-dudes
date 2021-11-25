@@ -1,6 +1,6 @@
 import React, {useState, } from 'react';
 import Person from './Person';
-import useFetch from './useFetch';
+import useFetch from './Utils/useFetch';
 import { scheduleUrl } from './Utils/ApiUrls';
 
 const Schedule = () => {

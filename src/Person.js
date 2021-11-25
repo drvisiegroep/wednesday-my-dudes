@@ -1,4 +1,4 @@
-import useFetch from './useFetch';
+import useFetch from './Utils/useFetch';
 import { shortDate, fullDayNameDutch } from './Utils/DateHandlers';
 import { personUrl } from './Utils/ApiUrls';
 

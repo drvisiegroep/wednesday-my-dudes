@@ -1,4 +1,4 @@
-import useFetch from "./useFetch";
+import useFetch from "./Utils/useFetch";
 import { presenceUrl } from './Utils/ApiUrls';
 
 const Presence = () => {
