@@ -3,6 +3,8 @@ import { fullDayNameDutch, shortDate } from "./DateHandlers";
 
 const RegistrationPagination = ({ array }) => {
 
+
+    
     // Huidige Pagina
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -27,7 +29,7 @@ const RegistrationPagination = ({ array }) => {
 
     }
 
-
+    // todo - currentpage moet teruggezet worden naar 1 als er andere data binnenkomt.
     // todo - pagina logica klopt niet (waarschijnlijk omdat ik maar 1 item per pagina gebruik. Math hard...)
     return (
 
@@ -50,8 +52,8 @@ const RegistrationPagination = ({ array }) => {
             
                 <div className="registratie-paginering">
                     {currentPage > 1 ? <button onClick={() => changePage('Vorige')}>Vorige</button> : <button disabled>Vorige</button>}
-                    <div className="paginering-rest">{numberOfPages - currentPage}</div>
-                    {array && numberOfItems - 1 > (currentPage - 1) * itemsPerPage ? <button onClick={() => changePage('Volgende')}>Volgende</button> : <button disabled>Vorige</button> }
+                    <div className="paginering-rest">{numberOfPages - currentPage + 1}</div>
+                    {numberOfItems - 1 > (currentPage - 1) * itemsPerPage ? <button onClick={() => changePage('Volgende')}>Volgende</button> : <button disabled>Vorige</button> }
                 </div>
 
             </div>   

@@ -29,7 +29,7 @@ const Schedule = () => {
 
 
     // UserID geven we mee als prop naar Person.js
-    const [userid, setUserid] = useState('1');
+    const [userid, setUserid] = useState('29');
 
     // Styling 
     const tableWidth = {
