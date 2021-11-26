@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fullDayNameDutch, shortDate } from "./DateHandlers";
 
 const RegistrationPagination = ({ array }) => {
 
+    //reset currentpage on user switch
+    const data = array
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [data])
 
-    
     // Huidige Pagina
     const [currentPage, setCurrentPage] = useState(1)
 
