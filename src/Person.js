@@ -2,14 +2,20 @@ import useFetch from './Utils/useFetch';
 import { shortDate } from './Utils/DateHandlers';
 import { personUrl } from './Utils/ApiUrls';
 import RegistrationPagination from './Utils/RegistrationPagination';
-import './css/dossier.css'
+import './css/person.css'
 
 
 function Person({ userid }) {
     
     // eslint-disable-next-line no-unused-vars
     const { error, isPending, data: person } = useFetch(personUrl(userid))
-
+    
+    if(isPending) {
+        <p>Loading...</p>
+    }
+    if(error) {
+        <p>Foutje bedankt: {error}</p>
+    }
 
     return (
 
