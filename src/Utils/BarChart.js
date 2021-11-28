@@ -16,9 +16,11 @@ const BarChart = () => {
 
   let barHeight = 30
         
-  let barGroups = data.map((d, i) => <g transform={`translate(0, ${i * barHeight})`}>
-                                                  <BarGroup d={d} barHeight={barHeight} />
-                                                </g>)   
+  let barGroups = data.map((item, index) => 
+      <g transform={`translate(0, ${index * barHeight})`}>
+        <BarGroup item={item} barHeight={barHeight} />
+      </g>
+    )   
  
   return(
     <>
