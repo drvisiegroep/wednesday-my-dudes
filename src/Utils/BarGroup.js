@@ -16,7 +16,7 @@ const BarGroup = ({item, barHeight, graphWidth}) => {
 
     // diff = eind - start
     // * dit is gewoon tijd berekening alleen nodig voor breedte 
-    let totaleTijd = eindTijd - startTijd
+    let totaleTijd = (eindTijd - startTijd)
     console.log('verschil:',totaleTijd)
     
     
@@ -57,11 +57,6 @@ const BarGroup = ({item, barHeight, graphWidth}) => {
       return xCoordinaat
     } 
 
-    tijdnaarXCoordinaat(startTijd)
-
-
-
-
     
     // let timediff = Math.floor(end - start)
    
@@ -69,7 +64,7 @@ const BarGroup = ({item, barHeight, graphWidth}) => {
     return (
     // starttijd klopt niet
     <g className="bar-group">
-      <rect y={barPadding * 0.5} x={tijdnaarXCoordinaat(startTijd)} width={tijdnaarXCoordinaat(totaleTijd)} height={barHeight - barPadding} fill={barColour} />
+      <rect y={barPadding * 0.5} x={tijdnaarXCoordinaat(startTijd)} width={tijdnaarXCoordinaat(eindTijd) - tijdnaarXCoordinaat(startTijd)} height={barHeight - barPadding} fill={barColour} />
       <text className="name-label" x="20" y={yMid} alignmentBaseline="top" >{item.name}</text>
       <text className="name-label" x={graphWidth / 10} y={yMid} alignmentBaseline="top" >{item.start}</text>
       <text className="name-label" x={graphWidth / 10 * 9} y={yMid} alignmentBaseline="top" >{item.end}</text>
