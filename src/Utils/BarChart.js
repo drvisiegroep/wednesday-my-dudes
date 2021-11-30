@@ -20,12 +20,15 @@ const BarChart = () => {
   let xIntervalLegend = graphWidth / 10
         
   let barGroups = data.map((item, index) => 
-      <g transform={`translate(0, ${index * barHeight})`}>
-        <BarGroup item={item} barHeight={barHeight} graphWidth={graphWidth} />
-      </g>
-    )   
+    <g transform={`translate(0, ${index * barHeight})`}>
+      <BarGroup item={item} barHeight={barHeight} graphWidth={graphWidth} />
+    </g>
+  )   
  
-// todo interval legenda dynamischer maken. Geen 10 regels code voor al die balkjes.
+  let legend = []
+  for(let x = 1; x < 10; x++) {
+      legend.push(<rect x={xIntervalLegend * x} y="0" width="0.5" height={graphHeight} fill="#000"/>)
+  }
 
   return(
     <>
@@ -36,17 +39,7 @@ const BarChart = () => {
             {barGroups}
           </g>
         </g>
-        
-        <rect x="0" width={graphWidth} y={graphHeight - 1} fill="#000" height="1"/>
-        <rect x={xIntervalLegend} y="0" width="0.5" height={graphHeight} fill="#000"/>
-        <rect x={xIntervalLegend * 2} y="0" width="0.5" height={graphHeight} fill="#000"/>
-        <rect x={xIntervalLegend * 3} y="0" width="0.5" height={graphHeight} fill="#000"/>
-        <rect x={xIntervalLegend * 4} y="0" width="0.5" height={graphHeight} fill="#000"/>
-        <rect x={xIntervalLegend * 5} y="0" width="0.5" height={graphHeight} fill="#000"/>
-        <rect x={xIntervalLegend * 6} y="0" width="0.5" height={graphHeight} fill="#000"/>
-        <rect x={xIntervalLegend * 7} y="0" width="0.5" height={graphHeight} fill="#000"/>
-        <rect x={xIntervalLegend * 8} y="0" width="0.5" height={graphHeight} fill="#000"/>
-        <rect x={xIntervalLegend * 9} y="0" width="0.5" height={graphHeight} fill="#000"/>
+        {legend}
       </svg>
     </>
   )

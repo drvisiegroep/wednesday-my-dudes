@@ -46,14 +46,13 @@ const BarGroup = ({item, barHeight, graphWidth}) => {
     console.log('-----')
 
     //hier moeten we nog wat doen
-    const tijdnaarXCoordinaat = (tijd) => {
-      let decimaal = tijd / 100
-      let heleUren = Math.floor(decimaal)
-      let achterDeKomma = decimaal - heleUren
-      let deelvanhetuur = achterDeKomma / 0.6
-      let omgerekendetijd = heleUren + deelvanhetuur
-      let xCoordinaat = omgerekendetijd * interval * 60
-      console.log('func xtijd',xCoordinaat)
+    const tijdNaarXCoordinaat = (tijd) => {
+      const decimaal = tijd / 100
+      const heleUren = Math.floor(decimaal)
+      const achterDeKomma = decimaal - heleUren
+      const deelvanhetuur = achterDeKomma / 0.6
+      const omgerekendetijd = heleUren + deelvanhetuur
+      const xCoordinaat = omgerekendetijd * interval * 60
       return xCoordinaat
     } 
 
@@ -64,7 +63,7 @@ const BarGroup = ({item, barHeight, graphWidth}) => {
     return (
     // starttijd klopt niet
     <g className="bar-group">
-      <rect y={barPadding * 0.5} x={tijdnaarXCoordinaat(startTijd)} width={tijdnaarXCoordinaat(eindTijd) - tijdnaarXCoordinaat(startTijd)} height={barHeight - barPadding} fill={barColour} />
+      <rect y={barPadding * 0.5} x={tijdNaarXCoordinaat(startTijd)} width={tijdNaarXCoordinaat(eindTijd) - tijdNaarXCoordinaat(startTijd)} height={barHeight - barPadding} fill={barColour} />
       <text className="name-label" x="20" y={yMid} alignmentBaseline="top" >{item.name}</text>
       <text className="name-label" x={graphWidth / 10} y={yMid} alignmentBaseline="top" >{item.start}</text>
       <text className="name-label" x={graphWidth / 10 * 9} y={yMid} alignmentBaseline="top" >{item.end}</text>
